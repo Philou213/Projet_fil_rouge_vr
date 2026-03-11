@@ -17,6 +17,7 @@ public class WeatherFetcher : MonoBehaviour
 
     [Header("Scene Effects")]
     public GameObject rain;
+    public GameObject sunny;
 
     void Start()
     {
@@ -46,7 +47,9 @@ public class WeatherFetcher : MonoBehaviour
     void ApplyWeatherEffects(int code)
     {
         bool isRain = code >= 61 && code <= 99;
+        
         rain.SetActive(isRain);
+        sunny.SetActive(!isRain);
     }
 
     string GetWeatherDescription(int code)
